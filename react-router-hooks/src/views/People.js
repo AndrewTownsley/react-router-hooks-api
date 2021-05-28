@@ -5,7 +5,7 @@ const People = () => {
   const [people, setPeople] = useState([]);
 
   useEffect(() => {
-    fetch("https://ghibliapi.herokuapp.com/films")
+    fetch("https://ghibliapi.herokuapp.com/people")
       .then((result) => result.json())
       .then((data) => {
         console.log(data);
@@ -15,7 +15,11 @@ const People = () => {
 
   return (
     <main>
-      <h1>HelloPeople</h1>
+      <ul className="list-group">
+        {people.map(person => {
+          return <li key={person.id}>{person.name}</li>
+        })}
+      </ul>
     </main>
   )
 }

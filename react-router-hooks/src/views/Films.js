@@ -8,7 +8,6 @@ const Films = () => {
     fetch("https://ghibliapi.herokuapp.com/films")
     .then((result) => result.json())
     .then((data) => {
-      console.log(data)
       setFilms(data)
     }).catch((error) => console.log(error.message));
   }, [])
