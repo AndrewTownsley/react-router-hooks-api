@@ -1,7 +1,14 @@
 import './App.css';
 import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
+import Home from './views/Home';
+import Films from './views/Films';
+import People from './views/People';
 
 const App = () => {
+
+  fetch("https://ghibliapi.herokuapp.com")
+    .then(response => response.json())
+    .then(data => console.log(data));
 
   return (
       <BrowserRouter>
@@ -18,14 +25,14 @@ const App = () => {
               </li>
           </ul>
           <Switch>
-            <Route path="/">
-              
+            <Route exact path="/">
+              <Home />
             </Route>
-            <Route path="/films">
-
+            <Route exact path="/films">
+              <Films />
             </Route>
-            <Route path="/people">
-
+            <Route exact path="/people">
+              <People />
             </Route>
           </Switch>
         </main>
